@@ -8,7 +8,8 @@ from email.mime.multipart import MIMEMultipart
 
 url = 'https://docs.google.com/spreadsheets/d/140jENzG4GACjso1W9v4Lpl6onnRXZXQ6/export?format=xlsx'
 
-t = date.today()
+#t = date.today()
+t = date(2024, 6, 1)
 df = pd.read_excel(url)
 birthdates = df[['BIRTHDATE(REGULARIZED)', 'YOUR FULL NAME ']]
 load_dotenv()
