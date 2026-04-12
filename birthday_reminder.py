@@ -19,23 +19,24 @@ SMTP_SERVER = 'smtp.gmail.com'
 PORT = 587
 
 def send_birthday_email(recipient_email, subject, body):
-    msg = MIMEMultipart()
-    msg['From'] = EMAIL_ADDRESS
-    msg['To'] = recipient_email
-    msg['Subject'] = subject
-    
-    msg.attach(MIMEText(body, 'plain'))
-    
-    try:
-        with smtplib.SMTP(SMTP_SERVER, PORT) as server:
-            server.starttls()
-            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            server.sendmail(EMAIL_ADDRESS, recipient_email, msg.as_string())
-        print(f'Email sent sucessfully')
-    except Exception as e:
-        print(f'Failed to send email: {e}')
+    for recipient in recipient_email:
+        msg = MIMEMultipart()
+        msg['From'] = EMAIL_ADDRESS
+        msg['To'] = recipient
+        msg['Subject'] = subject
+        
+        msg.attach(MIMEText(body, 'plain'))
+        
+        try:
+            with smtplib.SMTP(SMTP_SERVER, PORT) as server:
+                server.starttls()
+                server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+                server.sendmail(EMAIL_ADDRESS, recipient, msg.as_string())
+            print(f'Email sent sucessfully')
+        except Exception as e:
+            print(f'Failed to send email: {e}')
 
-recipient = 'anisiobinzubechi@gmail.com'
+recipient = ['anisiobinzubechi@gmail.com', 'angelicvoiceschoir13@gmail.com']
 subject = 'Birthday Reminder!'
 
 for index, row in df.iterrows():
