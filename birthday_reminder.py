@@ -10,7 +10,7 @@ URL = os.getenv('url')
 
 #t = date.today()
 t = date(2024, 6, 1)
-df = pd.read_excel(URL)
+df = pd.read_excel(f'{URL}')
 birthdates = df[['BIRTHDATE(REGULARIZED)', 'YOUR FULL NAME ']]
 load_dotenv()
 EMAIL_ADDRESS = os.getenv('Email_Address')
