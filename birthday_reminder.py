@@ -6,11 +6,11 @@ import os
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 
-url = os.getenv('url')
+URL = os.getenv('url')
 
 #t = date.today()
 t = date(2024, 6, 1)
-df = pd.read_excel(url)
+df = pd.read_excel(URL)
 birthdates = df[['BIRTHDATE(REGULARIZED)', 'YOUR FULL NAME ']]
 load_dotenv()
 EMAIL_ADDRESS = os.getenv('Email_Address')
