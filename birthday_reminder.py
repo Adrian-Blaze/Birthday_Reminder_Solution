@@ -6,7 +6,7 @@ import os
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 
-url = 'https://docs.google.com/spreadsheets/d/140jENzG4GACjso1W9v4Lpl6onnRXZXQ6/export?format=xlsx'
+url = os.getenv('url')
 
 #t = date.today()
 t = date(2024, 6, 1)
@@ -36,7 +36,7 @@ def send_birthday_email(recipient_email, subject, body):
         except Exception as e:
             print(f'Failed to send email: {e}')
 
-recipient = ['anisiobinzubechi@gmail.com', 'angelicvoiceschoir13@gmail.com']
+recipient = os.getenv('recipient')
 subject = 'Birthday Reminder!'
 
 for index, row in df.iterrows():
@@ -44,7 +44,6 @@ for index, row in df.iterrows():
     name = row['YOUR FULL NAME ']
     
     if birthdate.month == t.month and birthdate.day == t.day:
-        print(f"Today is {name}'s birthday!")
         body = f"Today is {name}'s birthday!"
         
         send_birthday_email (recipient, subject, body)
