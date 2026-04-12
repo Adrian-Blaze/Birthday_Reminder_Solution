@@ -27,6 +27,8 @@ jobs:
         env:
           Email_Address: ${{ secrets.Email_Address }}
           Email_Password: ${{ secrets.Email_Password }}
+          url: ${{ secrets.url }}
+          recipient: ${{ secrets.recipient }}
         run: python birthday_reminder.py
           
     
