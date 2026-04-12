@@ -36,7 +36,7 @@ def send_birthday_email(recipient_email, subject, body):
         except Exception as e:
             print(f'Failed to send email: {e}')
 
-recipient = os.getenv('recipient')
+recipient = ['anisiobinzubechi@gmail.com', 'angelicvoiceschoir13@gmail.com']
 subject = 'Birthday Reminder!'
 
 for index, row in df.iterrows():
