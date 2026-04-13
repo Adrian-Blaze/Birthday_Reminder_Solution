@@ -6,7 +6,9 @@ import os
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 
-URL = 'https://docs.google.com/spreadsheets/d/140jENzG4GACjso1W9v4Lpl6onnRXZXQ6/export?format=xlsx'
+#URL = 'https://docs.google.com/spreadsheets/d/140jENzG4GACjso1W9v4Lpl6onnRXZXQ6/export?format=xlsx'
+URL = os.getenv('URL').strip()
+
 
 #t = date.today()
 t = date(2024, 6, 1)
