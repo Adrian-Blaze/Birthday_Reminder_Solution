@@ -3,10 +3,10 @@ from datetime import date
 import smtplib
 from email.mime.text import MIMEText
 import os
+import json
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 
-#URL = 'https://docs.google.com/spreadsheets/d/140jENzG4GACjso1W9v4Lpl6onnRXZXQ6/export?format=xlsx'
 URL = os.getenv('URL').strip()
 
 
@@ -38,7 +38,7 @@ def send_birthday_email(recipient_email, subject, body):
         except Exception as e:
             print(f'Failed to send email: {e}')
 
-recipient = ['anisiobinzubechi@gmail.com', 'angelicvoiceschoir13@gmail.com']
+recipient = json.loads(os.getenv("recipient").strip())
 subject = 'Birthday Reminder!'
 
 for index, row in df.iterrows():
