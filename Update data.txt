@@ -1,0 +1,9 @@
+--------------
+HOW TO UPDATE
+--------------
+1. Open google forms for members to update
+2. Spool out new entries
+3. Regularize the date column
+4. Go to your own google drive to update the information in the sheet connected to the repo.
+5. Test link in code with the ipynb file
+6. Run workflow manually for final test
