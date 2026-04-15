@@ -12,8 +12,8 @@ from datetime import datetime
 URL = os.getenv('URL').strip()
 
 
-#t = date.today()
-t = date(2024, 6, 1)
+t = date.today()
+#t = date(2024, 6, 1)
 df = pd.read_excel(URL)
 birthdates = df[['BIRTHDATE(REGULARIZED)', 'YOUR FULL NAME ']]
 load_dotenv()
