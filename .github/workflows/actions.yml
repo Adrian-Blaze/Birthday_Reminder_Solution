@@ -34,10 +34,7 @@ jobs:
           recipient: ${{ secrets.recipient }}
         run: python birthday_reminder.py
           
-      - name: update log file
-        run: |
-          echo "$(date '+%Y-%m-%d %H:%M:%S') - Birthday script executed successfully" >> log.txt
-
+ 
       - name: commit log update
         run: |
             git config user.name "github-actions[bot]"
