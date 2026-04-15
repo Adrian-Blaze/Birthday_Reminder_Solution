@@ -6,6 +6,8 @@ import os
 import json
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
+from zoneinfo import ZoneInfo
+from datetime import datetime
 
 URL = os.getenv('URL').strip()
 
@@ -38,6 +40,15 @@ def send_birthday_email(recipient_email, subject, body):
         except Exception as e:
             print(f'Failed to send email: {e}')
 
+def log_birthday(name):
+    """
+    Logs a birthday event to log.txt with timestamp.
+    """
+    timestamp = datetime.now(ZoneInfo("Africa/Lagos")).strftime('%Y-%m-%d %H:%M')
+
+    with open("log.txt", "a") as f:
+        f.write(f"{timestamp} - Birthday: {name}\n")
+
 recipient = json.loads(os.getenv("recipient").strip())
 subject = 'Birthday Reminder!'
 
@@ -49,3 +60,4 @@ for index, row in df.iterrows():
         body = f"Today is {name}'s birthday!"
         
         send_birthday_email (recipient, subject, body)
+        log_birthday(name)
