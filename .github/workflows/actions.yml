@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '0 5,9 * * *' 
+    - cron: '0 4,8 * * *' 
   workflow_dispatch: 
 
 permissions:
